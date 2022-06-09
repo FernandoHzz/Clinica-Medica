@@ -3,8 +3,7 @@ package br.com.fernando.clinica.consulta.model;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.time.LocalTime;
+import java.time.LocalDateTime;
 
 
 @Data
@@ -16,11 +15,11 @@ public class Consulta {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+    @Column(nullable = false)
     private Long idPaciente;
+    @Column(nullable = false)
     private Long idMedico;
-    private LocalDate dataConsulta;
-    private LocalTime HorarioConsulta;
-
-
+    @Column(unique = true, nullable = false)
+    private LocalDateTime dataConsulta;
 
 }
